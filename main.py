@@ -9,7 +9,7 @@ def process_input():
     except:
         pass
     if not isinstance(inputs, list) or len(inputs) == 0 or \
-        not all([isinstance(i, tuple) and len(i) == 3 for i in inputs]):
+        not all([isinstance(i, tuple) and len(i) == 4 for i in inputs]):
         inputs = [(1, 5, 2, 1), (2, 10, 5, 2), (3, 20, 10, 3)]
         print("input format: [(start time, deadline, computation time, priority),...]\n"
                 "warning: fallback to use " + str(inputs) + " as inputs")

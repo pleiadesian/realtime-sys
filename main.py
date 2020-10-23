@@ -33,7 +33,7 @@ def perf(workloads, results):
     for workload, i in zip(workloads, range(len(workloads))):
         response_time = results.index(i) - workload[0]
         complete_time = rindex(results, i) - workload[0] + 1
-        expired = rindex(results, i) > workload[2]
+        expired = rindex(results, i) > workload[1]
         print("\tWorkloads: " + str(i))
         print("\t\tStart time: " + str(workload[0]))
         print("\t\tDeadline: " + str(workload[1]))

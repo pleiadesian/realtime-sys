@@ -22,7 +22,7 @@ def drawResults(results: list = [], workloads: list = [], title: str = ''):
     color_map = {task_set[i]: colors[i] for i in range(0, len(task_set))}
 
     plt.plot([], [], label='Arrival Time', color='black')
-    plt.plot([], [], label='Deadlnie', color='red')
+    plt.plot([], [], label='Deadline', color='red')
     plt.plot([], [], label='Finish Time', color='green')
 
     for i in range(0, len(workloads)):

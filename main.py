@@ -1,6 +1,9 @@
 #!/bin/python3
 
+from scheduler import draw
 from scheduler import dummy
+from scheduler import fifo
+from scheduler import round_robin
 
 def process_input():
     inputs = []
@@ -49,7 +52,10 @@ def main(scheduler):
     workloads = process_input()
     results = scheduler.schedule(workloads)
     perf(workloads, results)
+    draw.drawResults(results, workloads, 'Round Robin')
 
 # replace RHS with any scheduler implementations
 scheduler = dummy.DummyScheduler()
+scheduler = fifo.FIFOScheduler()
+scheduler = round_robin.RoundRobinScheduler()
 main(scheduler)

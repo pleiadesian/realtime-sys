@@ -1,6 +1,5 @@
 from scheduler.abstract_class import Scheduler
 import math
-from scheduler.draw import drawResults
 
 class RoundRobinScheduler(Scheduler):
     def schedule(self, workloads):
@@ -27,6 +26,5 @@ class RoundRobinScheduler(Scheduler):
                 compute_time -= time_slice
             if compute_time > 0:
                 tasks.append((task_order, (start_time, deadline, compute_time, priority)))
-        drawResults(seq, 'Round Robin')
         return seq
         

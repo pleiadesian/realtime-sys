@@ -1,5 +1,4 @@
 from scheduler.abstract_class import Scheduler
-from scheduler.draw import drawResults
 
 class FIFOScheduler(Scheduler):
     def schedule(self, workloads):
@@ -15,7 +14,6 @@ class FIFOScheduler(Scheduler):
             task_order, task = tasks[i][0], tasks[i][1]
             compute_time = task[2]
             seq += [task_order] * compute_time
-        drawResults(seq, 'FIFO')
         return seq
 
 

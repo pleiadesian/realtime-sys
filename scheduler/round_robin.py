@@ -1,11 +1,11 @@
 from scheduler.abstract_class import Scheduler
 import math
-
+from scheduler.draw import drawResults
 
 class RoundRobinScheduler(Scheduler):
     def schedule(self, workloads):
         seq = []
-        time_slice = 3
+        time_slice = 1
         # add an order number for each task
         tasks = zip(list(range(0, len(workloads))), workloads)
         # sort by start time
@@ -27,5 +27,6 @@ class RoundRobinScheduler(Scheduler):
                 compute_time -= time_slice
             if compute_time > 0:
                 tasks.append((task_order, (start_time, deadline, compute_time, priority)))
+        drawResults(seq, 'Round Robin')
         return seq
         

@@ -22,22 +22,23 @@ x, y = 0, 0
 movex, movey = 0, 0
 # print(robot.get_width(), robot.get_height())
 while True:
+    step = 0.2
     for event in pygame.event.get():
         if event.type == QUIT:
             pygame.quit()
             sys.exit()
         if event.type == KEYDOWN:
             if event.key == K_LEFT:
-                movex = -1
+                movex = -step
                 robot = robot_left
             if event.key == K_RIGHT:
-                movex = +1
+                movex = +step
                 robot = robot_right
             elif event.key == K_UP:
-                movey = -1
+                movey = -step
                 robot = robot_normal
             elif event.key == K_DOWN:
-                movey = +1
+                movey = +step
                 robot = robot_down
         if event.type == KEYUP:
             if event.key == K_LEFT:

@@ -13,7 +13,8 @@ def process_input():
         pass
     if not isinstance(inputs, list) or len(inputs) == 0 or \
         not all([isinstance(i, tuple) and len(i) == 4 for i in inputs]):
-        inputs = [(1, 5, 2, 1), (2, 10, 5, 2), (3, 20, 10, 3)]
+        # inputs = [(1, 5, 2, 1), (2, 10, 5, 2), (3, 20, 10, 3)]
+        inputs = [(5, 17, 5, 1), (4, 15, 10, 1), (7, 10, 1, 1)]
         print("input format: [(start time, deadline, computation time, priority),...]\n"
                 "warning: fallback to use " + str(inputs) + " as inputs")
     else:
@@ -48,14 +49,14 @@ def perf(workloads, results):
     sched_times = sum([r0 != r1 for r0, r1 in zip(results, results[1:])])
     print("Total switches: " + str(sched_times))
 
-def main(scheduler):
+def main(scheduler, scheduler_name):
     workloads = process_input()
     results = scheduler.schedule(workloads)
     perf(workloads, results)
-    draw.drawResults(results, workloads, 'Round Robin')
+    draw.drawResults(results, workloads, scheduler_name)
 
 # replace RHS with any scheduler implementations
 scheduler = dummy.DummyScheduler()
 scheduler = fifo.FIFOScheduler()
 scheduler = round_robin.RoundRobinScheduler()
-main(scheduler)
+main(scheduler, 'Round Robin')

@@ -4,6 +4,8 @@ from scheduler import draw
 from scheduler import dummy
 from scheduler import fifo
 from scheduler import round_robin
+from scheduler import fixed_priority
+from scheduler import EDF
 
 def process_input():
     inputs = []
@@ -59,4 +61,6 @@ def main(scheduler, scheduler_name):
 scheduler = dummy.DummyScheduler()
 scheduler = fifo.FIFOScheduler()
 scheduler = round_robin.RoundRobinScheduler()
-main(scheduler, 'Round Robin')
+scheduler = fixed_priority.FixedPriorityScheduler()
+scheduler = EDF.EDFScheduler()
+main(scheduler, 'EDF')
